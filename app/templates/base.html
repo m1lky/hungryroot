@@ -18,7 +18,10 @@
     {% endblock %}
 </head>
 <body>
+    
     <div class="container">
+        <div class="title is-centered banner">Welcome to the pet store!</div>
+    <br>
         {% if 'is_admin' in session %}
             <div class="breadcrumb navigation is-centered">
                 <ul>
@@ -29,19 +32,26 @@
             {% endif %}
         {% if user_info %}
         <div class="user-greeting">
-            Hello, {{ user_info.fname }}! <form action="/logout"><input type="submit" value="Logout"></form>
-        </div>
-            
+            Hello, {{ user_info.fname }}! <form action="/logout"><input class="button" type="submit" value="Logout"></form>
+        </div>   
         {% else %}
-        <div id="login_form">
-            <form class="ishalf" action="/login" method="post">
-            <input type="text" name="email" class="ishalf" placeholder="Email">
-            <input type="password" name="password" class="ishalf" placeholder="Password">
-            <input type="submit" value="Login">
-            </form>
-        </div>
-        <div id="sign_up_form" class="ishalf">
-            <button onclick="toggle_modal('sign_up')">Sign up!</button>
+        <div class="columns">
+            <span id="login_form" class="column login-columns">
+                <form class="columns is-3" action="/login" method="post">
+                    <span class="column">
+                <input type="text" name="email" class="column" placeholder="Email">
+            </span>
+                <span class="column">
+                <input type="password" name="password" class="column" placeholder="Password">
+                </span>
+                <span class="column">
+                <input type="submit" class="button" value="Login">
+                </span>
+                </form>
+            </span>
+            <span id="sign_up_form" class="column">
+                <button class="button is-primary" onclick="toggle_modal('sign_up')">Sign up!</button>
+            </span>
         </div>
         {% endif %}
         <div id="content">{% block content %} {% endblock %}</div>

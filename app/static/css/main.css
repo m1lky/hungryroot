@@ -5,7 +5,9 @@
 .pet-card-title{
 	justify-content: space-between;
 }
-
+.login-columns {
+	justify-content: space-between;
+}
 .liked {
 	background-color: pink;
 	box-shadow: 1px 2px lightgrey;
@@ -20,4 +22,8 @@
 
 .new-pet-button {
 	padding: 10px;
+}
+
+.banner {
+	padding: 15px;
 }
