@@ -1,0 +1,21 @@
+<div id="user_{{ u.rowid }}" class="card">
+	<header class="card-header">
+		<p class="card-header-title is-centered" >
+			{{ u.fname }}&nbsp{{ u.lname }}
+		</p>
+	</header>
+	<div class="card-content">
+		<table class="table">
+			<tbody>
+				<tr>
+					<th> City: </th> <td> {{ u.city }}</td>
+					<th> State: </th> <td> {{ u.state }}</td>
+				</tr>
+				<tr>
+					<th>Email Address:</th> <td> {{ u.email }}</td>
+					<th>Phone: </th> <td> {{ u.phone }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

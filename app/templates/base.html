@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css" src="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"></style>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <style type="text/css" src="{{ url_for('static', filename='css/main.css') }}"></style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <script type="text/javascript" src="{{ url_for('static', filename='javascript/etc.js') }}"></script>
+
+    <title>Pet Store</title>
+    {% if not user_info %}
+        {% include "sign_up_modal.html" %}
+    {% endif %}
+
+    {% block head %}
+    
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% if 'is_admin' in session %}
+            <div class="breadcrumb navigation is-centered">
+                <ul>
+                <li><a href="/admin_page"> Admin Page </a></li>
+                <li><a href="/">Welcome page </a></li>
+                </ul>
+            </div>
+            {% endif %}
+        {% if user_info %}
+        <div class="user-greeting">
+            Hello, {{ user_info.fname }}! <form action="/logout"><input type="submit" value="Logout"></form>
+        </div>
+            
+        {% else %}
+        <div id="login_form">
+            <form class="ishalf" action="/login" method="post">
+            <input type="text" name="email" class="ishalf" placeholder="Email">
+            <input type="password" name="password" class="ishalf" placeholder="Password">
+            <input type="submit" value="Login">
+            </form>
+        </div>
+        <div id="sign_up_form" class="ishalf">
+            <button onclick="toggle_modal('sign_up')">Sign up!</button>
+        </div>
+        {% endif %}
+        <div id="content">{% block content %} {% endblock %}</div>
+        <div id="footer">
+            {% block footer %}
+            
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

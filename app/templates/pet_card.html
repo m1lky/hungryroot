@@ -1,0 +1,35 @@
+<div id="pet_{{ p.rowid }}" class="card">
+	<header class="card-header">
+		<div class="card-header-title pet-card-title">
+			<span class="is-pulled-left">
+				{{ p.name }}
+			</span>
+			<button class="button is-pulled-right
+			{% if p.is_liked %} liked {% endif %}" id="pet_like_{{ p.rowid }}" onclick="toggle_pet_like(this)">
+			&hearts;
+			</button>
+		</div>
+
+	</header>
+	<figure class="card-image is-4x3">
+		<img src="{{ url_for('static', filename='images/'+p.image) }}" alt="Image Unavailable">
+	</figure>
+	<div class="card-content">
+		<table class="table">
+			<tbody>
+				<tr>
+					<th> Species: </th> <td> {{ p.species }}</td>
+					<th> Breed: </th> <td> {{ p.breed }}</td>
+				</tr>
+				<tr>
+					<th> Age: </th> <td> {{ p.age }} </td>
+					{% if p.price|float() is equalto 0.0 %}
+						<th>Adopt me!</th>
+					{% else %}
+						<th>Price: </th> <td> {{ "%.2f"|format(p.price) }} </td>
+					{% endif %}
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

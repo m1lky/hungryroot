@@ -1,0 +1,41 @@
+<div id="sign_up_modal" class="modal">
+	<div class="modal-background" onclick="toggle_sign_up_modal()"></div>
+	<div class="modal-content">
+		<table class="table">
+			<tbody>
+				<form action="/sign_up" method="post">
+				<tr>
+					<th>Name: </th> <td><input type="text" name="fname" placeholder="First"></td><td><input type="text" name="lname" placeholder="Last"></td>
+				</tr>
+				<tr>
+					<th>Address: </th><td><input type="text" name="address1" placeholder="Line 1"></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+						<input type="text" name="address2" placeholder="Line 2">
+					</td>
+				</tr>
+				<tr>
+					<th>City: </th> <td><input type="text" name="city"></td>
+					<th>State: </th> <td><input type="text" name="state"></td>
+				</tr>
+				<tr>
+					<th>Email: </th> <td><input type="text" name="email"></td>
+				</tr>
+				<tr>
+					<th>Phone #: </th> <td><input type="text" name="phone"></td>
+				</tr>
+				<tr>
+					<th>Password: </th> <td><input type="password" name="password1"></td>
+					<th>Confirm: </th> <td><input type="password" name="password2"></td>
+				</tr>
+				<tr>
+					<th></th><td><input type="submit"></td>
+				</tr>
+				</form>
+			</tbody>
+		</table>
+	</div>
+	<button class="modal-close is-large" onclick="toggle_sign_up_modal()" aria-label="close"></button>
+</div>

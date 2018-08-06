@@ -1,0 +1,28 @@
+<div id="add_pet_modal" class="modal">
+	<div class="modal-background" onclick="toggle_modal('add_pet')"></div>
+	<div class="modal-content">
+		<table class="table">
+			<tbody>
+				<form action="/add_pet" method="post" enctype="multipart/form-data">
+				<tr>
+					<th>Name: </th> <td><input type="text" name="name" placeholder="First"></td>
+					<th>Image: </th><td><input type="file" name="image"></td>
+				</tr>
+				<tr>
+					<th>Species: </th> <td><input type="text" name="species"></td>
+					<th>Breed: </th> <td><input type="text" name="breed"></td>
+				</tr>
+				<tr>
+					<th>Age: </th> <td><input type="text" name="age"></td>
+					<th>Price: </th> <td><input type="text" name="price"></td>
+				</tr>
+				
+				<tr>
+					<th></th><td><input type="submit"></td>
+				</tr>
+				</form>
+			</tbody>
+		</table>
+	</div>
+	<button class="modal-close is-large" onclick="toggle_modal('add_pet')" aria-label="close"></button>
+</div>

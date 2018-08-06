@@ -1,0 +1,26 @@
+<div class="card">
+	<header class="card-header">
+		<p class="card-header-title is-centered" >
+			<input type="text" id="name_{{ p.rowid }}" placeholder="{{ p.name }}">
+		</p>
+	</header>
+	<figure class="card-image is-4x3">
+		<img src="{{ url_for('static', filename='images/'+p.image) }}" alt="Image Unavailable">
+	</figure>
+	<div class="card-content">
+		<table class="table">
+			<tbody>
+				<tr>
+					<th> Species: </th> <td><input type="text" id="species_{{ p.rowid }}" placeholder="{{ p.species }}"></td>
+					<th> Breed: </th> <td> <input type="text" id="breed_{{ p.rowid }}" placeholder="{{ p.breed }}"></td>
+				</tr>
+				<tr>
+					<th> Age: </th> <td> <input type="text" id="age_{{ p.rowid }}" placeholder="{{ p.age }}"> </td>
+					<th> Price: </th> <td> <input type="text" id="price_{{ p.rowid }}" placeholder="{{ "%.2f"|format(p.price) }}"> </td>
+				</tr>
+				<tr><td><a class="button" id="{{ p.rowid }}" onclick="edit_pet( this )">Update</a></td><td><span id="checkmark_{{ p.rowid }}" style="display:none;">&#10003;</span></td>
+					<td><form action="/delete_pet"><input type="hidden" name="rowid" value="{{ p.rowid }}"><input type="submit" class="button" value="Delete"></form></td></tr>
+			</tbody>
+		</table>
+	</div>
+</div>

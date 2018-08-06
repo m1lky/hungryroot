@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="title">Welcome to the pet store!</div>
+<div class="subtitle">Click the &hearts; to like a pet!</div>
+<div class="columns">
+	{% for p in pets_list %}
+		<div class="column is-half">
+		{% include "pet_card.html" %}
+		</div>
+		{% if loop.index is divisibleby 2 %}
+		</div><div class="columns">
+		{% endif %}
+	{% endfor %}
+</div>
+{% endblock %}
