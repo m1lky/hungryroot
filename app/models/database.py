@@ -13,7 +13,7 @@ class database:
 		return d
 
 	def __init__(self):
-		self.conn = sqlite3.connect('/root/hungryroot/app/database/', timeout=10)
+		self.conn = sqlite3.connect('/root/hungryroot/app/database/pet_store', timeout=10)
 		self.conn.row_factory = self.dict_factory
 		self.cursor = self.conn.cursor()
 
